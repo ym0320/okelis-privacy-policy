@@ -128,6 +128,39 @@
       font-size: 14px;
     }
 
+    .utility-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .utility-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .utility-link.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .utility-link:hover {
+      text-decoration: none;
+      opacity: 0.94;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 1.1fr 2fr;
@@ -262,6 +295,10 @@
         <div class="chip">運営: オケリス</div>
         <div class="chip">対象アプリ: iOS / Android</div>
       </div>
+      <div class="utility-nav">
+        <a class="utility-link primary" href="./support.html">サポートページを見る</a>
+        <a class="utility-link" href="mailto:ny57.dev@gmail.com">メールで問い合わせる</a>
+      </div>
     </header>
 
     <div class="grid">
@@ -362,6 +399,11 @@
               <a href="mailto:ny57.dev@gmail.com">ny57.dev@gmail.com</a>
             </p>
           </div>
+          <p style="margin-top: 14px; margin-bottom: 0;">
+            サポート窓口、返信目安、よくある質問は
+            <a href="./support.html">サポートページ</a>
+            をご確認ください。
+          </p>
         </section>
       </div>
     </div>
