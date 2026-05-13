@@ -8,7 +8,7 @@
 
 ## 公開前に置き換えるもの
 
-- `YOUR_PUBLIC_SUPPORT_EMAIL@example.com`
+- なし
 
 ## GitHub Pages
 
