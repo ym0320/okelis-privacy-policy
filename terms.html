@@ -4,64 +4,303 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>オケリス 利用規約</title>
-  <meta name="description" content="オケリスの利用規約。無料プランとPremium買い切りプランの内容、禁止事項、免責、変更方針を掲載しています。">
+  <meta name="description" content="オケリスの利用規約。サービス内容、App内課金、禁止事項、免責事項、準拠法などを掲載しています。">
   <style>
-    body { margin: 0; font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; background: #f7f5ef; color: #121317; line-height: 1.8; }
-    .shell { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 56px; }
-    .panel { background: rgba(255,255,255,0.9); border: 1px solid rgba(18,19,23,0.08); border-radius: 24px; box-shadow: 0 18px 60px rgba(18,19,23,0.08); padding: 24px; }
-    h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.08; letter-spacing: -0.04em; margin: 0 0 12px; }
-    h2 { margin: 28px 0 10px; font-size: 22px; }
-    p { margin: 0 0 14px; color: #515661; }
-    ul { margin: 0; padding-left: 20px; color: #515661; }
-    a { color: #0f7cff; text-decoration: none; }
+    :root {
+      --bg: #f6f5f1;
+      --paper: rgba(255,255,255,0.90);
+      --ink: #101114;
+      --muted: #5e626b;
+      --line: rgba(16,17,20,0.09);
+      --accent: #c89a10;
+      --gold: #f8d878;
+      --gold-dark: #b98518;
+      --shadow: 0 22px 80px rgba(16,17,20,0.08);
+      --max: 980px;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left,  rgba(248,216,120,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(180,120,10,0.12),  transparent 24%),
+        radial-gradient(circle at 70% 55%,   rgba(200,154,16,0.07),  transparent 30%),
+        linear-gradient(180deg, #fcfbf4 0%, #f4f1e6 100%);
+      line-height: 1.8;
+    }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-    .nav a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(18,19,23,0.1); background: rgba(255,255,255,0.72); color: #121317; font-weight: 700; text-decoration: none; }
-    .lead { font-size: 18px; max-width: 760px; }
-    .note { margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: rgba(15,124,255,0.08); color: #23508d; }
+    .shell { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; padding: 28px 0 72px; }
+
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .nav a {
+      display: inline-flex; align-items: center;
+      min-height: 40px; padding: 0 16px;
+      border-radius: 999px; border: 1px solid rgba(16,17,20,0.12);
+      background: rgba(255,255,255,0.76);
+      color: var(--ink); font-weight: 700; font-size: 14px;
+    }
+    .nav a:hover { background: #fff; text-decoration: none; }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1400 0%, #0a0800 60%, #1c1400 100%);
+      border-radius: var(--radius-xl);
+      padding: clamp(32px,5vw,56px) clamp(24px,5vw,56px);
+      margin-bottom: 28px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: -40px; right: -40px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(248,216,120,0.22) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: ""; position: absolute; bottom: -60px; left: -30px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,130,16,0.18) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 4px 12px; border-radius: 999px;
+      background: rgba(248,216,120,0.14); border: 1px solid rgba(248,216,120,0.32);
+      color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(32px,5vw,54px);
+      line-height: 1.06; letter-spacing: -0.04em;
+      color: #fff; margin: 0 0 14px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-lead { font-size: clamp(15px,2vw,18px); color: rgba(255,255,255,0.65); max-width: 640px; margin: 0 0 22px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; color: rgba(248,216,120,0.7); }
+    .hero-meta span::before { content: "— "; }
+
+    .card {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius-xl); box-shadow: var(--shadow);
+      padding: clamp(24px,4vw,44px); margin-bottom: 20px;
+    }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section-label::before { content: ""; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+    h2 { font-size: clamp(20px,2.5vw,26px); letter-spacing: -0.02em; margin: 0 0 16px; color: var(--ink); }
+    h3 { font-size: 17px; font-weight: 700; margin: 22px 0 8px; color: var(--ink); }
+    p { margin: 0 0 14px; color: var(--muted); }
+    ul, ol { margin: 0 0 14px; padding-left: 22px; color: var(--muted); }
+    li { margin-bottom: 6px; }
+
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; margin: 20px 0; }
+    .plan { border-radius: var(--radius-lg); padding: 22px 24px; border: 1px solid var(--line); }
+    .plan-free { background: #fafaf8; }
+    .plan-premium { background: linear-gradient(135deg, #1a1400 0%, #0e0b00 100%); border-color: rgba(248,216,120,0.30); }
+    .plan-name { font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .plan-free .plan-name { color: var(--muted); }
+    .plan-premium .plan-name { color: var(--gold); }
+    .plan-price { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .plan-free .plan-price { color: var(--ink); }
+    .plan-premium .plan-price { color: #fff; }
+    .plan-features { list-style: none; padding: 0; margin: 0; }
+    .plan-features li {
+      padding: 6px 0; border-bottom: 1px solid rgba(16,17,20,0.06);
+      font-size: 14px; color: var(--muted);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .plan-premium .plan-features li { border-color: rgba(248,216,120,0.12); color: rgba(255,255,255,0.72); }
+    .plan-features li::before { content: "✓"; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .plan-free .plan-features li::before { color: #22c55e; }
+    .plan-premium .plan-features li::before { color: var(--gold); }
+
+    .highlight { padding: 16px 20px; border-radius: var(--radius-md); margin: 16px 0; }
+    .highlight-blue { background: rgba(15,124,255,0.07); border-left: 3px solid #0f7cff; color: #1a4a8a; }
+    .highlight-gold { background: rgba(248,216,120,0.10); border-left: 3px solid var(--gold-dark); color: #7a5a00; }
+    .highlight-warn { background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; color: #8a1a1a; }
+    .highlight p { color: inherit; margin: 0; font-size: 14px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+    th { text-align: left; padding: 10px 14px; background: rgba(16,17,20,0.04); border-bottom: 1px solid var(--line); font-weight: 700; color: var(--ink); }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+
+    .footer { text-align: center; padding: 28px 0 0; font-size: 13px; color: var(--muted); }
+    .footer a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .plans { grid-template-columns: 1fr; }
+      .hero { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
   <main class="shell">
-    <div class="nav">
-      <a href="./support.html">サポート</a>
+
+    <nav class="nav">
       <a href="./index.html">プライバシーポリシー</a>
+      <a href="./support.html">サポート</a>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-badge">📜 Terms of Service</div>
+      <h1>オケリス<br><span>利用規約</span></h1>
+      <p class="hero-lead">本規約は、中山 雄太（以下「開発者」）が提供するカラオケ管理アプリ「オケリス」の利用条件を定めるものです。ご利用前に必ずお読みください。</p>
+      <div class="hero-meta">
+        <span>最終更新日: 2026年5月16日</span>
+        <span>施行日: 2026年4月1日</span>
+        <span>準拠法: 日本法</span>
+      </div>
     </div>
-    <section class="panel">
-      <h1>オケリス 利用規約</h1>
-      <p class="lead">本規約は、オケリスの利用条件を定めるものです。ユーザーは本規約に同意のうえ、本サービスを利用するものとします。</p>
-      <p>最終更新日: 2026年5月13日</p>
 
-      <h2>1. 提供プラン</h2>
-      <ul>
-        <li>無料プランでは、広告が表示されます。</li>
-        <li>無料プランでは、持ち歌登録は30曲までです。</li>
-        <li>無料プランでは、曲ごとのスコア保存は直近10件までです。</li>
-        <li>無料プランでは、セッション履歴および分析対象は直近90日分までです。</li>
-        <li>Premiumは買い切り1,200円で、広告非表示、持ち歌登録数制限なし、曲ごとのスコア保存制限なし、セッション履歴制限なしです。</li>
-      </ul>
+    <div class="card">
+      <div class="section-label">Article 1</div>
+      <h2>本規約への同意</h2>
+      <p>本サービスをダウンロード・インストール・使用することにより、お客様は本規約のすべての条項に同意したものとみなします。本規約に同意しない場合は、本サービスをご利用いただけません。お客様が13歳未満の場合、保護者の同意が必要です。</p>
+      <div class="highlight highlight-blue">
+        <p>本サービスは Apple App Store を通じて配信されます。Apple Inc. の <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">標準 EULA</a> も適用されます。Apple は本規約の当事者ではなく、本サービスおよびそのコンテンツに関して一切の責任を負いません。</p>
+      </div>
+    </div>
 
-      <h2>2. 禁止事項</h2>
+    <div class="card">
+      <div class="section-label">Article 2</div>
+      <h2>サービスの内容</h2>
+      <p>オケリスは、カラオケの持ち歌管理・採点記録・セトリ作成・スコア分析を提供するモバイルアプリケーションです。</p>
+      <div class="plans">
+        <div class="plan plan-free">
+          <div class="plan-name">Free</div>
+          <div class="plan-price">¥0</div>
+          <ul class="plan-features">
+            <li>持ち歌登録 30曲まで</li>
+            <li>スコア保存 直近10件/曲</li>
+            <li>セッション履歴 直近90日</li>
+            <li>セトリ作成・楽曲検索</li>
+            <li>スコアスキャン（OCR）</li>
+            <li>広告表示あり</li>
+          </ul>
+        </div>
+        <div class="plan plan-premium">
+          <div class="plan-name">Premium</div>
+          <div class="plan-price">¥1,200 <span style="font-size:16px;opacity:.7">買い切り</span></div>
+          <ul class="plan-features">
+            <li>持ち歌登録 無制限</li>
+            <li>スコア保存 無制限</li>
+            <li>セッション履歴 無制限</li>
+            <li>セトリ作成・楽曲検索</li>
+            <li>スコアスキャン（OCR）</li>
+            <li>広告非表示</li>
+            <li>ゴールドテーマ</li>
+          </ul>
+        </div>
+      </div>
+      <p>機能・仕様は予告なく変更される場合があります。</p>
+    </div>
+
+    <div class="card">
+      <div class="section-label">Article 3</div>
+      <h2>App 内課金（Premium）</h2>
+      <h3>購入について</h3>
+      <p>Premiumは非消耗型の買い切り商品です。購入は Apple の App Store を通じて処理されます。決済・領収書・返金に関するお問い合わせは Apple サポートへご連絡ください。</p>
+      <div class="highlight highlight-gold">
+        <p><strong>商品ID:</strong> com.karaolist.app.premium　｜　<strong>価格:</strong> ¥1,200（税込）<br>
+        同一 Apple Account であれば「購入を復元」から再有効化できます。</p>
+      </div>
+      <h3>返金ポリシー</h3>
+      <p>返金は Apple の返金ポリシーに従います。返金をご希望の場合は、<a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> からお申し込みください。</p>
+      <table>
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>商品種別</td><td>非消耗型（買い切り）</td></tr>
+        <tr><td>価格</td><td>¥1,200（税込）</td></tr>
+        <tr><td>有効期限</td><td>なし（永続）</td></tr>
+        <tr><td>返金窓口</td><td>Apple（reportaproblem.apple.com）</td></tr>
+        <tr><td>復元方法</td><td>アプリ内「購入を復元」ボタン</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-label">Article 4</div>
+      <h2>アカウントとデータ</h2>
+      <h3>ゲストモード</h3>
+      <p>アカウント登録なしでご利用できます。ゲストデータは端末内にのみ保存され、アプリ削除時に失われます。</p>
+      <h3>アカウント登録</h3>
+      <p>Apple または Google アカウントで登録すると、データがクラウドに同期されます。各プロバイダの利用規約にも従ってください。</p>
+      <h3>アカウント削除</h3>
+      <p>いつでもアプリ設定からアカウントおよびすべてのデータを削除できます。削除後のデータは復元できません。</p>
+    </div>
+
+    <div class="card">
+      <div class="section-label">Article 5</div>
+      <h2>知的財産権</h2>
+      <p>本サービスおよびそのすべてのコンテンツの著作権その他の知的財産権は開発者に帰属します。楽曲情報（タイトル・アーティスト名・ジャケット画像等）は iTunes Search API から取得しており、各著作権者に帰属します。本サービスは楽曲の配信・再生を行いません。</p>
+    </div>
+
+    <div class="card">
+      <div class="section-label">Article 6</div>
+      <h2>禁止事項</h2>
       <ul>
-        <li>法令または公序良俗に反する行為</li>
-        <li>不正アクセスやサービス運営を妨害する行為</li>
+        <li>法令または公序良俗に違反する行為</li>
+        <li>本サービスのリバースエンジニアリング・逆コンパイル</li>
+        <li>不正アクセスまたはその試み</li>
+        <li>サービスインフラへの過大な負荷をかける行為</li>
         <li>第三者の権利を侵害する行為</li>
+        <li>商業目的での無断利用または再配布</li>
       </ul>
+      <div class="highlight highlight-warn">
+        <p>禁止事項に違反した場合、事前の通知なくアカウントを停止または削除する場合があります。</p>
+      </div>
+    </div>
 
-      <h2>3. データとアカウント</h2>
-      <p>ユーザーは、自らの責任で登録データを管理するものとします。ログインや同期を利用する場合、認証や保存に外部サービスを利用することがあります。</p>
+    <div class="card">
+      <div class="section-label">Article 7</div>
+      <h2>免責事項・保証の否認</h2>
+      <p>本サービスは「現状のまま」提供されます。開発者は、サービスの中断なき提供・完全性・正確性、OCRスキャン結果の正確性、データの永続的な保管について一切の保証をしません。通信環境、OS アップデート、外部サービスの仕様変更等により、機能の一部または全部が利用できなくなる場合があります。</p>
+    </div>
 
-      <h2>4. 免責</h2>
-      <p>オケリスは、サービスの完全性、正確性、継続性を保証するものではありません。障害、通信環境、外部サービスの仕様変更等により、一部機能が利用できない場合があります。</p>
+    <div class="card">
+      <div class="section-label">Article 8</div>
+      <h2>責任の制限</h2>
+      <p>法令が許容する最大限の範囲において、開発者は本サービスの利用または利用不能に起因するいかなる損害（データ損失・逸失利益・間接損害等）についても責任を負いません。開発者が責任を負う場合の賠償額は、お客様が過去3か月間に支払った金額を上限とします。</p>
+    </div>
 
-      <h2>5. 規約変更</h2>
-      <p>本規約は、必要に応じて変更されることがあります。重要な変更がある場合は、アプリ内または公開ページで告知します。</p>
+    <div class="card">
+      <div class="section-label">Article 9</div>
+      <h2>プライバシー</h2>
+      <p>個人情報の取り扱いについては、別途定める <a href="./index.html">プライバシーポリシー</a> をご参照ください。プライバシーポリシーは本規約の一部を構成します。</p>
+    </div>
 
-      <h2>6. お問い合わせ</h2>
-      <p>規約やサービス利用に関するお問い合わせは <a href="mailto:ny57.dev@gmail.com">ny57.dev@gmail.com</a> までご連絡ください。</p>
+    <div class="card">
+      <div class="section-label">Article 10</div>
+      <h2>規約の変更</h2>
+      <p>開発者は必要に応じて本規約を変更できます。重要な変更がある場合は、アプリ内通知またはサポートページで事前にお知らせします。変更後に本サービスを継続してご利用いただいた場合、変更後の規約に同意したものとみなします。</p>
+    </div>
 
-      <div class="note">App Store Connect のサポートURLやマーケティング導線からアクセスする場合は、サポートページとあわせてこの規約ページを参照できる状態にしてください。</div>
-    </section>
+    <div class="card">
+      <div class="section-label">Article 11</div>
+      <h2>準拠法・紛争解決</h2>
+      <p>本規約は日本法に準拠し解釈されます。本サービスに関して生じた紛争については、大阪地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+    </div>
+
+    <div class="card">
+      <div class="section-label">Article 12</div>
+      <h2>お問い合わせ</h2>
+      <table>
+        <tr><th>開発者</th><td>中山 雄太</td></tr>
+        <tr><th>メール</th><td><a href="mailto:ny57.dev@gmail.com">ny57.dev@gmail.com</a></td></tr>
+        <tr><th>サポートページ</th><td><a href="./support.html">サポートページへ</a></td></tr>
+      </table>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 中山 雄太 &mdash; オケリス（Okelis）</p>
+      <p><a href="./index.html">プライバシーポリシー</a>　｜　<a href="./support.html">サポート</a></p>
+    </footer>
+
   </main>
 </body>
 </html>
